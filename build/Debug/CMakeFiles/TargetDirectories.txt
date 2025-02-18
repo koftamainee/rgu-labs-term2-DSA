@@ -1,0 +1,8 @@
+/home/kofta/dev/rgu-labs-term2-DSA/build/Debug/CMakeFiles/edit_cache.dir
+/home/kofta/dev/rgu-labs-term2-DSA/build/Debug/CMakeFiles/rebuild_cache.dir
+/home/kofta/dev/rgu-labs-term2-DSA/build/Debug/src/CMakeFiles/rgu-labs.dir
+/home/kofta/dev/rgu-labs-term2-DSA/build/Debug/src/CMakeFiles/edit_cache.dir
+/home/kofta/dev/rgu-labs-term2-DSA/build/Debug/src/CMakeFiles/rebuild_cache.dir
+/home/kofta/dev/rgu-labs-term2-DSA/build/Debug/src/01-Encoder/CMakeFiles/Encoder.dir
+/home/kofta/dev/rgu-labs-term2-DSA/build/Debug/src/01-Encoder/CMakeFiles/edit_cache.dir
+/home/kofta/dev/rgu-labs-term2-DSA/build/Debug/src/01-Encoder/CMakeFiles/rebuild_cache.dir

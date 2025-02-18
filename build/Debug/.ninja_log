@@ -1,0 +1,8 @@
+# ninja log v6
+1	19	1739892885038048259	src/01-Encoder/CMakeFiles/Encoder.dir/encoder.cpp.o	635cbcb308d21f01
+1	190	1739893425957484998	src/CMakeFiles/rgu-labs.dir/main.cpp.o	84b3fe34351ba9d3
+1	212	1739893425954151711	src/01-Encoder/CMakeFiles/Encoder.dir/test_encoder.cpp.o	a7511a555d0cfeb1
+212	235	1739893426167482166	src/01-Encoder/libEncoder.a	68e0d4a0bd30acd9
+180	242	1739892963710341419	src/rgu-labs	43cd2f957e6dd3a
+1	120	1739894146224380271	src/01-Encoder/CMakeFiles/Encoder.dir/test_encoder.cpp.o	a7511a555d0cfeb1
+120	152	1739894146344378639	src/01-Encoder/libEncoder.a	68e0d4a0bd30acd9
