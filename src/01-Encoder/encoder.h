@@ -5,7 +5,7 @@
 
 namespace rc4 {
 
-const size_t S_SIZE = 256;
+const size_t S_SIZE = 0xFF;
 
 class Encoder {
  private:
@@ -16,6 +16,8 @@ class Encoder {
 
   void KSA(const unsigned char *key, size_t key_size);
   unsigned char PRGA();
+
+  void swap(unsigned char &a, unsigned char &b);
 
  public:
   Encoder(unsigned char *key, size_t key_size);
