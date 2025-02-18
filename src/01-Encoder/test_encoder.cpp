@@ -1,5 +1,6 @@
 #include "test_encoder.h"
 
+#include <iostream>
 #include <stdexcept>
 
 #include "encoder.h"
@@ -19,5 +20,8 @@ void encoder(int argc, char **argv) {
                                         'f', 'g', 'h', 'i', 'j'};
 
   rc4::Encoder enc(key, ENCODER_KEY_LEN);
+  enc.encode(argv[1], argv[2]);
+  std::cout << "'" << argv[1] << "' encoded into '" << argv[2]
+            << "' succesfully." << std::endl;
 }
 }  // namespace test

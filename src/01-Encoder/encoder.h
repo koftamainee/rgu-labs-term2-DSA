@@ -1,24 +1,33 @@
 #pragma once
 
+#include <algorithm>
 #include <cstddef>
+#include <memory>
 
 namespace rc4 {
 
+const size_t S_SIZE = 256;
+
 class Encoder {
  private:
-  unsigned char *key;
-  size_t key_size;
+  unsigned char S_[S_SIZE];
 
-  void KSA(unsigned char *key);
-  void PRGA(unsigned char *key, unsigned char *data, size_t data_size);
-  void swap(unsigned char &a, unsigned char &b);
+  int i_;
+  int j_;
+
+  void KSA(const unsigned char *key, size_t key_size);
+  unsigned char PRGA();
 
  public:
   Encoder(unsigned char *key, size_t key_size);
-  ~Encoder();
+  Encoder(const Encoder &other) = default;       // no dynamic memory
+  ~Encoder() = default;                          // no dynamic memory
+  Encoder &operator=(Encoder &other) = default;  // no dynamic memory
 
-  void mutate(unsigned char *key, size_t key_size);
-  void encode(char const *fin_name, char const *fout_name, bool encode);
+  inline void mutate(unsigned char *key, size_t key_size);
+
+  // encode param is useless, encryption & decryption in RC4 are the same
+  void encode(char const *fin_name, char const *fout_name, bool encode = true);
 };
 
 }  // namespace rc4

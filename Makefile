@@ -39,6 +39,11 @@ run: debug
 	@echo "------------------------------------"
 	@$(BUILD_DIR)/Debug/src/rgu-labs $(f)
 
+valgrind: debug
+	@echo "Running the project in Debug mode via valgrind..."
+	@echo "------------------------------------"
+	@valgrind --leak-check=full $(BUILD_DIR)/Debug/src/rgu-labs $(f)
+
 
 help:
 	@echo "Usage:"
