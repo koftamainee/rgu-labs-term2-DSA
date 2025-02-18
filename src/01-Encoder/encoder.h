@@ -2,7 +2,6 @@
 
 #include <algorithm>
 #include <cstddef>
-#include <memory>
 
 namespace rc4 {
 
