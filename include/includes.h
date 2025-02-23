@@ -1,0 +1,4 @@
+#include "lab1/tests/test_complex.h"
+#include "lab1/tests/test_encoder.h"
+#include "lab1/tests/test_logical_values_array.h"
+#include "lab1/tests/test_matrix.h"

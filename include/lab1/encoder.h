@@ -1,0 +1,34 @@
+#pragma once
+
+#include <algorithm>
+#include <cstddef>
+
+namespace lab1 {
+
+const size_t S_SIZE = 0xFF;
+
+class encoder {
+ private:
+  unsigned char S_[S_SIZE];
+
+  int i_;
+  int j_;
+
+  void KSA(const unsigned char *key, size_t key_size);
+  unsigned char PRGA();
+
+  void swap(unsigned char &a, unsigned char &b);
+
+ public:
+  encoder(unsigned char *key, size_t key_size);
+  encoder(const encoder &other) = default;       // no dynamic memory
+  ~encoder() = default;                          // no dynamic memory
+  encoder &operator=(encoder &other) = default;  // no dynamic memory
+
+  inline void mutate(unsigned char *key, size_t key_size);
+
+  // encode param is useless, encryption & decryption in RC4 are the same
+  void encode(char const *fin_name, char const *fout_name, bool encode = true);
+};
+
+}  // namespace lab1
