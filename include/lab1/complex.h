@@ -29,8 +29,8 @@ class complex {
   complex operator/(const complex &other) const;
   complex &operator/=(const complex &other);
 
-  double abs() const;
-  double arg() const;
+  [[nodiscard]] double abs() const;
+  [[nodiscard]] double arg() const;
 
   friend std::ostream &operator<<(std::ostream &out, const complex &number);
   friend std::istream &operator>>(std::istream &in, complex &number);

@@ -1,6 +1,5 @@
 #pragma once
 
-#include <algorithm>
 #include <cstddef>
 
 namespace lab1 {
@@ -11,13 +10,13 @@ class encoder {
  private:
   unsigned char S_[S_SIZE];
 
-  int i_;
-  int j_;
+  size_t i_;
+  size_t j_;
 
   void KSA(const unsigned char *key, size_t key_size);
   unsigned char PRGA();
 
-  void swap(unsigned char &a, unsigned char &b);
+  static void swap(unsigned char &a, unsigned char &b);
 
  public:
   encoder(unsigned char *key, size_t key_size);

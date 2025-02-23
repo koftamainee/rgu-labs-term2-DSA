@@ -1,9 +1,7 @@
 #pragma once
 
-namespace lab1 {
-namespace test {
+namespace lab1::test {
 
 void logical_values_array(int argc, char **argv);
 
-}  // namespace test
-}  // namespace lab1
+}  // namespace lab1::test

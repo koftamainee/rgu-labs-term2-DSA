@@ -48,13 +48,19 @@ int main(int argc, char **argv) {
     test(argc - 3, argv + 3);
   } catch (std::runtime_error &e) {
     std::cerr << "Error occurred during execution: " << e.what() << std::endl;
+    return -1;
   } catch (std::bad_alloc &e) {
     std::cerr << "Memory allocation error: " << e.what() << std::endl;
+    return -1;
   } catch (std::invalid_argument &e) {
     std::cerr << "Invalid argument passed to the function: " << e.what()
               << std::endl;
+    return -1;
+  } catch (std::out_of_range &e) {
+    std::cerr << "Index is out of bounds: " << e.what() << std::endl;
   } catch (...) {
     std::cerr << "Unknown error occurred during execution." << std::endl;
+    return -1;
   }
   std::cout << "All tests completed." << std::endl;
   return 0;

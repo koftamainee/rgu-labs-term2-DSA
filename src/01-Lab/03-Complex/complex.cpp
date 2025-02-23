@@ -6,7 +6,7 @@
 namespace lab1 {
 
 complex complex::operator+(const complex &other) const {
-  return complex(real_ + other.real_, imaginary_ + other.imaginary_);
+  return {real_ + other.real_, imaginary_ + other.imaginary_};
 }
 
 complex &complex::operator+=(const complex &other) {
@@ -15,7 +15,7 @@ complex &complex::operator+=(const complex &other) {
 }
 
 complex complex::operator-(const complex &other) const {
-  return complex(real_ - other.real_, imaginary_ - other.imaginary_);
+  return {real_ - other.real_, imaginary_ - other.imaginary_};
 }
 
 complex &complex::operator-=(const complex &other) {
@@ -58,7 +58,7 @@ complex &complex::operator/=(const complex &other) {
 }
 
 double complex::abs() const {
-  return std::sqrt(real_ * real_ + imaginary_ * imaginary_);
+  return std::sqrt((real_ * real_) + (imaginary_ * imaginary_));
 }
 
 double complex::arg() const { return std::atan(real_ / imaginary_); }
@@ -73,7 +73,8 @@ std::ostream &operator<<(std::ostream &out, const complex &number) {
 }
 
 std::istream &operator>>(std::istream &in, complex &number) {
-  double real = 0, imaginary = 0;
+  double real = 0;
+  double imaginary = 0;
   char c;
 
   in >> real >> c;

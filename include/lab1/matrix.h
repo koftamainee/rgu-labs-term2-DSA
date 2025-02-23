@@ -33,12 +33,12 @@ class matrix {
 
   friend matrix operator*(double number, const matrix &mat);
 
-  matrix transpose() const;
-  double det() const;
-  matrix inverse() const;
+  [[nodiscard]] matrix transpose() const;
+  [[nodiscard]] double det() const;
+  [[nodiscard]] matrix inverse() const;
 
   double *operator[](size_t index) const;
-  double &at(size_t i, size_t j) const;
+  [[nodiscard]] double &at(size_t row, size_t col) const;
 
   friend std::ostream &operator<<(std::ostream &out, const matrix &mat);
 };

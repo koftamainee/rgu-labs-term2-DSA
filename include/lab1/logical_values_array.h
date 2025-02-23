@@ -14,26 +14,29 @@ class logical_values_array {
   logical_values_array(const logical_values_array& other) = default;
   logical_values_array& operator=(const logical_values_array& other) = default;
 
-  unsigned int value() const;
+  [[nodiscard]] unsigned int value() const;
 
-  logical_values_array logical_not() const;
-  logical_values_array logical_and(const logical_values_array& other) const;
-  logical_values_array logical_or(const logical_values_array& other) const;
-  logical_values_array logical_implication(
+  [[nodiscard]] logical_values_array logical_not() const;
+  [[nodiscard]] logical_values_array logical_and(
       const logical_values_array& other) const;
-  logical_values_array logical_coimplication(
+  [[nodiscard]] logical_values_array logical_or(
       const logical_values_array& other) const;
-  logical_values_array logical_xor(const logical_values_array& other) const;
-  logical_values_array logical_equivalence(
+  [[nodiscard]] logical_values_array logical_implication(
       const logical_values_array& other) const;
-  logical_values_array logical_pierce_arrow(
+  [[nodiscard]] logical_values_array logical_coimplication(
       const logical_values_array& other) const;
-  logical_values_array logical_sheffer_stroke(
+  [[nodiscard]] logical_values_array logical_xor(
+      const logical_values_array& other) const;
+  [[nodiscard]] logical_values_array logical_equivalence(
+      const logical_values_array& other) const;
+  [[nodiscard]] logical_values_array logical_pierce_arrow(
+      const logical_values_array& other) const;
+  [[nodiscard]] logical_values_array logical_sheffer_stroke(
       const logical_values_array& other) const;
 
-  bool equals(const logical_values_array& other);
+  [[nodiscard]] bool equals(const logical_values_array& other) const;
 
-  bool at(size_t pos) const;
+  [[nodiscard]] bool at(size_t pos) const;
   bool operator[](size_t pos) const;
 
   void to_binary_string(char* buffer) const;

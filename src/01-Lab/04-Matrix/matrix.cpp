@@ -51,7 +51,10 @@ matrix::matrix(const matrix &other) {
 }
 
 matrix &matrix::operator=(const matrix &other) {
-  if (!(cols_ == other.cols_ && rows_ == other.rows_)) {
+  if (&other == this) {
+    return *this;
+  }
+  if (cols_ != other.cols_ || rows_ != other.rows_) {
     rows_ = other.rows_;
     cols_ = other.cols_;
     allocate_memory();
@@ -63,7 +66,7 @@ matrix &matrix::operator=(const matrix &other) {
 }
 
 matrix matrix::operator+(const matrix &other) const {
-  if (!(cols_ == other.cols_ && rows_ == other.rows_)) {
+  if (cols_ != other.cols_ || rows_ != other.rows_) {
     throw std::invalid_argument(
         "Matrix addition works only with matrices of equal size");
   }
@@ -85,7 +88,7 @@ matrix &matrix::operator+=(const matrix &other) {
 }
 
 matrix matrix::operator-(const matrix &other) const {
-  if (!(cols_ == other.cols_ && rows_ == other.rows_)) {
+  if (cols_ != other.cols_ || rows_ != other.rows_) {
     throw std::invalid_argument(
         "Matrix addition works only with matrices of equal size");
   }
@@ -158,8 +161,9 @@ matrix matrix::transpose() const {
 }
 
 double matrix::det() const {
-  if (rows_ != cols_)
+  if (rows_ != cols_) {
     throw std::invalid_argument("Matrix must be square to compute determinant");
+  }
 
   matrix temp(*this);
   double det = 1.0;
@@ -171,7 +175,7 @@ double matrix::det() const {
       }
     }
     if (i != max_row) {
-      auto forswap = temp.data_[i];
+      auto *forswap = temp.data_[i];
       temp.data_[i] = temp.data_[max_row];
       temp.data_[max_row] = forswap;
       std::swap(temp.data_[i], temp.data_[max_row]);
@@ -194,12 +198,15 @@ double matrix::det() const {
 }
 
 matrix matrix::inverse() const {
-  if (rows_ != cols_)
+  if (rows_ != cols_) {
     throw std::invalid_argument("Matrix must be square to compute inverse");
+  }
 
   matrix augmented(rows_, 2 * cols_);
   for (int i = 0; i < rows_; ++i) {
-    for (int j = 0; j < cols_; ++j) augmented.data_[i][j] = data_[i][j];
+    for (int j = 0; j < cols_; ++j) {
+      augmented.data_[i][j] = data_[i][j];
+    }
     augmented.data_[i][cols_ + i] = 1;
   }
 
@@ -221,32 +228,36 @@ matrix matrix::inverse() const {
     }
 
     double factor = augmented.data_[i][i];
-    for (int j = 0; j < 2 * cols_; ++j) augmented.data_[i][j] /= factor;
+    for (int j = 0; j < 2 * cols_; ++j) {
+      augmented.data_[i][j] /= factor;
+    }
 
     for (int j = 0; j < rows_; ++j) {
       if (j != i) {
         factor = augmented.data_[j][i];
-        for (int k = 0; k < 2 * cols_; ++k)
+        for (int k = 0; k < 2 * cols_; ++k) {
           augmented.data_[j][k] -= factor * augmented.data_[i][k];
+        }
       }
     }
   }
 
   matrix inv(rows_, cols_);
   for (int i = 0; i < rows_; ++i) {
-    for (int j = 0; j < cols_; ++j)
+    for (int j = 0; j < cols_; ++j) {
       inv.data_[i][j] = augmented.data_[i][cols_ + j];
+    }
   }
   return inv;
 }
 
 double *matrix::operator[](size_t index) const { return data_[index]; }
 
-double &matrix::at(size_t i, size_t j) const {
-  if (i >= rows_ || j >= cols_) {
+double &matrix::at(size_t row, size_t col) const {
+  if (row >= rows_ || col >= cols_) {
     throw std::out_of_range("Invalid index for matrix");
   }
-  return data_[i][j];
+  return data_[row][col];
 }
 
 std::ostream &operator<<(std::ostream &out, const matrix &mat) {

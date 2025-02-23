@@ -15,7 +15,9 @@ inline void encoder::swap(unsigned char &a, unsigned char &b) {
 encoder::encoder(unsigned char *key, size_t key_size) { mutate(key, key_size); }
 
 void encoder::KSA(const unsigned char *key, size_t key_size) {
-  for (int k = 0; k < S_SIZE; k++) S_[k] = k;
+  for (int k = 0; k < S_SIZE; k++) {
+    S_[k] = k;
+  }
 
   j_ = 0;
   for (int k = 0; k < S_SIZE; k++) {
@@ -52,7 +54,7 @@ void encoder::encode(const char *fin_name, const char *fout_name, bool encode) {
       for (int k = 0; k < read_bytes; ++k) {
         buffer[k] ^= PRGA();
       }
-      fout.write((char *)buffer, read_bytes);
+      fout.write((char *)buffer, (long)read_bytes);
     }
   }
   fin.close();
