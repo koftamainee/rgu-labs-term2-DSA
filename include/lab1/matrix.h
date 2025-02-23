@@ -13,6 +13,10 @@ class matrix {
   void allocate_memory();
   void deallocate_memory();
 
+  matrix create_augmented_matrix() const;
+  void gaussian_elimination(matrix &augmented) const;
+  matrix extract_inverse(const matrix &augmented) const;
+
  public:
   matrix(size_t rows, size_t cols);
   ~matrix();

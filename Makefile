@@ -26,13 +26,6 @@ configure:
 		-B "$(BUILD_DIR)/$(BUILD_TYPE)" \
 		-S .
 
-configure_native:
-	$(Q)echo "Configuring project for $(BUILD_TYPE) build (native)..."
-	$(Q)mkdir -p $(BUILD_DIR)/$(BUILD_TYPE)
-	$(Q)$(CMAKE_CMD) -DCMAKE_BUILD_TYPE=$(BUILD_TYPE) \
-		-B "$(BUILD_DIR)/$(BUILD_TYPE)" \
-		-S .
-
 build: configure
 	$(Q)echo "Building project in $(BUILD_TYPE) mode..."
 	$(Q)$(CMAKE_CMD) --build "$(BUILD_DIR)/$(BUILD_TYPE)"
@@ -43,10 +36,6 @@ build: configure
 	else \
 		echo "Error: Build failed - target not found"; exit 1; \
 	fi
-
-native: configure_native
-	$(Q)$(MAKE) BUILD_TYPE=$(BUILD_TYPE) build
-	$(Q)cp $(BUILD_DIR)/$(BUILD_TYPE)/compile_commands.json compile_commands.json
 
 clean:
 	$(Q)echo "Cleaning build artifacts..."

@@ -202,6 +202,12 @@ matrix matrix::inverse() const {
     throw std::invalid_argument("Matrix must be square to compute inverse");
   }
 
+  matrix augmented = create_augmented_matrix();
+  gaussian_elimination(augmented);
+  return extract_inverse(augmented);
+}
+
+matrix matrix::create_augmented_matrix() const {
   matrix augmented(rows_, 2 * cols_);
   for (int i = 0; i < rows_; ++i) {
     for (int j = 0; j < cols_; ++j) {
@@ -209,7 +215,10 @@ matrix matrix::inverse() const {
     }
     augmented.data_[i][cols_ + i] = 1;
   }
+  return augmented;
+}
 
+void matrix::gaussian_elimination(matrix &augmented) const {
   for (int i = 0; i < rows_; ++i) {
     size_t max_row = i;
     for (int j = i + 1; j < rows_; ++j) {
@@ -218,20 +227,16 @@ matrix matrix::inverse() const {
         max_row = j;
       }
     }
-
     if (i != max_row) {
       std::swap(augmented.data_[i], augmented.data_[max_row]);
     }
-
     if (augmented.data_[i][i] == 0) {
       throw std::invalid_argument("Matrix is singular, no inverse exists");
     }
-
     double factor = augmented.data_[i][i];
     for (int j = 0; j < 2 * cols_; ++j) {
       augmented.data_[i][j] /= factor;
     }
-
     for (int j = 0; j < rows_; ++j) {
       if (j != i) {
         factor = augmented.data_[j][i];
@@ -241,7 +246,9 @@ matrix matrix::inverse() const {
       }
     }
   }
+}
 
+matrix matrix::extract_inverse(const matrix &augmented) const {
   matrix inv(rows_, cols_);
   for (int i = 0; i < rows_; ++i) {
     for (int j = 0; j < cols_; ++j) {
