@@ -1,3 +1,3 @@
 file(GLOB SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
-add_library(BinaryPriorityQueue STATIC ${SOURCES})
+add_library(Skew_heap STATIC ${SOURCES})
 set(SOURCES ${SOURCES} PARENT_SCOPE)
