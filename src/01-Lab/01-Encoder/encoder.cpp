@@ -48,13 +48,14 @@ void encoder::encode(const char *fin_name, const char *fout_name, bool encode) {
   }
   unsigned char buffer[4096];
   while (!fin.eof()) {
-    fin.read((char *)buffer, sizeof(buffer));
+    fin.read(reinterpret_cast<char *>(buffer), sizeof(buffer));
     size_t read_bytes = fin.gcount();
     if (read_bytes > 0) {
       for (int k = 0; k < read_bytes; ++k) {
         buffer[k] ^= PRGA();
       }
-      fout.write((char *)buffer, (long)read_bytes);
+      fout.write(reinterpret_cast<char *>(buffer),
+                 static_cast<long>(read_bytes));
     }
   }
   fin.close();
