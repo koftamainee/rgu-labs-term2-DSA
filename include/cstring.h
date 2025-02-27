@@ -22,13 +22,13 @@ class string {
   string &operator=(const string &other);
 
   char &operator[](size_t index) const noexcept;
-  char &at(size_t index) const;
+  [[nodiscard]] char &at(size_t index) const;
 
-  size_t size() const noexcept;
-  size_t capacity() const noexcept;
+  [[nodiscard]] size_t size() const noexcept;
+  [[nodiscard]] size_t capacity() const noexcept;
 
   void clear();
-  bool empty() const noexcept;
+  [[nodiscard]] bool empty() const noexcept;
 
   string operator+(const string &other) const;
   string &operator+=(const string &other);
@@ -38,10 +38,10 @@ class string {
 
   void pop_back();
 
-  string substr(const string &needle) const;
-  int compare(const string &other) const noexcept;
+  [[nodiscard]] string substr(const string &needle) const;
+  [[nodiscard]] int compare(const string &other) const noexcept;
 
-  char *c_str() const noexcept;
+  [[nodiscard]] char *c_str() const noexcept;
 
   friend std::ostream &operator<<(std::ostream &out, const string &str);
   friend std::istream &operator>>(std::istream &in, string &str);

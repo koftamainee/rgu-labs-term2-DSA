@@ -68,7 +68,7 @@ valgrind: debug
 
 analyze: build
 	$(Q)echo "Analyzing code with clang-tidy..."
-	$(Q)find . -name '*.cpp' -o -name '*.h' -not -path "./$(BUILD_DIR)/*" -not -path "./$(TARGET_DIR)/*" | xargs clang-tidy -p .
+	$(Q)find . -name '*.cpp' -o -name '*.h' -not -path "./$(BUILD_DIR)/*" -not -path "./$(TARGET_DIR)/*" | xargs clang-tidy -p.
 
 analyze_fix: build
 	$(Q)echo "Analyzing code with clang-tidy..."

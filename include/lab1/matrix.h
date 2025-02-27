@@ -5,7 +5,7 @@
 
 namespace lab1 {
 
-class matrix {
+class matrix final {
  private:
   double **data_;
   size_t rows_, cols_;
@@ -13,13 +13,13 @@ class matrix {
   void allocate_memory();
   void deallocate_memory();
 
-  matrix create_augmented_matrix() const;
+  [[nodiscard]] matrix create_augmented_matrix() const;
   void gaussian_elimination(matrix &augmented) const;
-  matrix extract_inverse(const matrix &augmented) const;
+  [[nodiscard]] matrix extract_inverse(const matrix &augmented) const;
 
  public:
   matrix(size_t rows, size_t cols);
-  virtual ~matrix() noexcept;
+  ~matrix() noexcept;
   matrix(const matrix &other);
   matrix &operator=(const matrix &other);
 

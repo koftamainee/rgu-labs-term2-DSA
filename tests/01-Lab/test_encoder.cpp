@@ -5,8 +5,7 @@
 
 #include "lab1/encoder.h"
 
-namespace lab1 {
-namespace test {
+namespace lab1::test {
 
 const size_t ENCODER_KEY_LEN = 10;
 
@@ -26,5 +25,4 @@ void encoder(int argc, char **argv) {
   std::cout << "'" << argv[0] << "' encoded into '" << argv[1]
             << "' succesfully." << std::endl;
 }
-}  // namespace test
-}  // namespace lab1
+}  // namespace lab1::test

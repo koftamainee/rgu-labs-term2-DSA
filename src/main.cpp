@@ -3,10 +3,15 @@
 #include <stdexcept>
 
 #include "includes.h"
+#include "lab1/tests/test_binary_heap.h"
 
 void (*const LAB_1_FUNCTION_POINTERS[])(int, char **) = {
-    lab1::test::encoder, lab1::test::logical_values_array, lab1::test::complex,
-    lab1::test::matrix};
+    lab1::test::encoder,
+    lab1::test::logical_values_array,
+    lab1::test::complex,
+    lab1::test::matrix,
+    nullptr,  // task 5 is not executable
+    lab1::test::binary_heap};
 
 void (*const *const LABS_FUNCTION_POINTERS[])(int, char **) = {
     LAB_1_FUNCTION_POINTERS};
@@ -32,12 +37,12 @@ int main(int argc, char **argv) {
     return -1;
   }
 
-  const int NUM_TESTS =
-      sizeof(LAB_1_FUNCTION_POINTERS) / sizeof(LAB_1_FUNCTION_POINTERS[0]);
-  if (test_number < 1 || test_number > NUM_TESTS) {
-    std::cerr << "Invalid test number provided. Aborting." << std::endl;
-    return -1;
-  }
+  // const int NUM_TESTS = sizeof(LABS_FUNCTION_POINTERS[lab_number]) /
+  //                       sizeof(LABS_FUNCTION_POINTERS[lab_number][0]);
+  // if (test_number < 1 || test_number > NUM_TESTS) {
+  //   std::cerr << "Invalid test number provided. Aborting." << std::endl;
+  //   return -1;
+  // } // TODO: fix
 
   void (*test)(int, char **) =
       LABS_FUNCTION_POINTERS[lab_number - 1][test_number - 1];

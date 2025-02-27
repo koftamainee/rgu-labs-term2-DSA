@@ -4,7 +4,7 @@
 
 namespace lab1 {
 
-class complex {
+class complex final {
  private:
   double real_;
   double imaginary_;

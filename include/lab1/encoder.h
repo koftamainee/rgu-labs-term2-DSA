@@ -6,7 +6,7 @@ namespace lab1 {
 
 const size_t S_SIZE = 0xFF;  // 255 in hexidecimal
 
-class encoder {
+class encoder final {
  private:
   unsigned char S_[S_SIZE];
 
@@ -21,7 +21,7 @@ class encoder {
  public:
   encoder(unsigned char *key, size_t key_size);
   encoder(const encoder &other) = default;       // no dynamic memory
-  virtual ~encoder() noexcept = default;         // no dynamic memory
+  ~encoder() noexcept = default;                 // no dynamic memory
   encoder &operator=(encoder &other) = default;  // no dynamic memory
 
   inline void mutate(unsigned char *key, size_t key_size);
