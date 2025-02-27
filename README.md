@@ -11,7 +11,7 @@ make run f="cli args"
 ### Make is a wrapper for CMake, generating build files for Ninja build system
 ```bash
 sudo apt install make cmake ninja-build   # Debian-based
-sudo pacman -Syu make cmake Ninja         # Arch-based
+sudo pacman -Syu make cmake ninja         # Arch-based
 ```
 You can build with other build system, if CMake supports it, eg
 ```bash
