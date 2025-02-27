@@ -13,7 +13,7 @@ class complex {
   complex(double real = 0, double imaginary = 0)
       : real_(real), imaginary_(imaginary) {}
 
-  ~complex() = default;
+  virtual ~complex() noexcept = default;
   complex(const complex &other) = default;
   complex &operator=(const complex &other) = default;
 

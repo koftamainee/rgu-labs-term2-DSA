@@ -39,7 +39,7 @@ matrix::matrix(size_t rows, size_t cols) {
   }
 }
 
-matrix::~matrix() { deallocate_memory(); }
+matrix::~matrix() noexcept { deallocate_memory(); }
 
 matrix::matrix(const matrix &other) {
   rows_ = other.rows_;

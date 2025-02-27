@@ -19,7 +19,7 @@ class matrix {
 
  public:
   matrix(size_t rows, size_t cols);
-  ~matrix();
+  virtual ~matrix() noexcept;
   matrix(const matrix &other);
   matrix &operator=(const matrix &other);
 

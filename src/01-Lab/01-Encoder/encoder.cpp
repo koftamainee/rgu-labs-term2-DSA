@@ -61,5 +61,4 @@ void encoder::encode(const char *fin_name, const char *fout_name, bool encode) {
   fin.close();
   fout.close();
 }
-
 }  // namespace lab1

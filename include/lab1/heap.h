@@ -4,7 +4,7 @@ namespace lab1 {
 
 class heap {
  public:
-  virtual ~heap() = default;
+  virtual ~heap() noexcept = default;
 
   virtual heap &operator=(heap &other) = 0;
   virtual void insert(char *value, int key) = 0;
