@@ -16,6 +16,9 @@ void (*const LAB_1_FUNCTION_POINTERS[])(int, char **) = {
 void (*const *const LABS_FUNCTION_POINTERS[])(int, char **) = {
     LAB_1_FUNCTION_POINTERS};
 
+const int LABS_COUNT = 4;
+const int TASKS_COUNT[] = {11, 8, 9, 6};
+
 int main(int argc, char **argv) {
   if (argc < 3) {
     std::cerr << "Not enough CLI arguments. Aborting." << std::endl;
@@ -30,19 +33,19 @@ int main(int argc, char **argv) {
   int test_number = 0;
   test_stream >> test_number;
 
-  const int NUM_LABS =
-      sizeof(LABS_FUNCTION_POINTERS) / sizeof(LABS_FUNCTION_POINTERS[0]);
-  if (lab_number < 1 || lab_number > NUM_LABS) {
+  if (lab_number < 1 || lab_number > LABS_COUNT) {
     std::cerr << "Invalid lab number provided. Aborting." << std::endl;
     return -1;
   }
 
-  // const int NUM_TESTS = sizeof(LABS_FUNCTION_POINTERS[lab_number]) /
-  //                       sizeof(LABS_FUNCTION_POINTERS[lab_number][0]);
-  // if (test_number < 1 || test_number > NUM_TESTS) {
-  //   std::cerr << "Invalid test number provided. Aborting." << std::endl;
-  //   return -1;
-  // } // TODO: fix
+  if (test_number < 1 || test_number > TASKS_COUNT[lab_number - 1]) {
+    std::cerr << "Invalid test number provided. Aborting." << std::endl;
+    return -1;
+  }
+  if (test_number == 5 && lab_number == 1) {
+    std::cerr << "Task 5 in 1 lab is not executable" << std::endl;
+    return -1;
+  }
 
   void (*test)(int, char **) =
       LABS_FUNCTION_POINTERS[lab_number - 1][test_number - 1];
