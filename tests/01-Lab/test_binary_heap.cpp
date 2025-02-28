@@ -8,9 +8,9 @@ namespace {
 void demonstrate_insert_and_top(lab1::binary_heap &heap) {
   std::cout << "Demonstrating insert and top operations:\n";
   heap.insert("Task1", 3);
-  heap.insert("Task2", 1);
-  heap.insert("Task4", 2);
-  heap.insert("Task5", 8);
+  heap.insert("Task2", 3);
+  heap.insert("Task4", 3);
+  heap.insert("Task5", 3);
   heap.insert("Task6", -5);
   heap.insert("Task7", 0);
   heap.insert("Task8", 7);
@@ -38,6 +38,8 @@ void demonstrate_merge(lab1::binary_heap &heap1, lab1::binary_heap &heap2) {
 
   std::cout << "After merge, top element of heap1: " << heap1.top()
             << " with priority: " << heap1.top_priority() << "\n";
+  std::cout << "heap1 size: " << heap1.size() << " heap2 size: " << heap2.size()
+            << std::endl;
 }
 }  // namespace
 

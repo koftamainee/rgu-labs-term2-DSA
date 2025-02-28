@@ -16,7 +16,7 @@ class binary_heap final : public heap {
   size_t capacity_;
   size_t size_;
 
-  void resize(size_t new_size);
+  void resize(size_t new_capacity);
   void sift_up(size_t index);
   void sift_down(size_t index);
 
