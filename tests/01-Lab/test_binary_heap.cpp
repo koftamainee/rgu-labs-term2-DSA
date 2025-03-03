@@ -56,20 +56,4 @@ void lab1::test::binary_heap(int argc, char **argv) {
   demonstrate_pop(heap1);
 
   demonstrate_merge(heap1, heap2);
-
-  std::cout << "-------------------" << std::endl;
-
-  // lab1::binomial_heap heap;
-  //
-  // heap.insert("Task A", 3);
-  // heap.insert("Task B", 1);
-  // heap.insert("Task C", 5);
-  // heap.insert("Task D", 2);
-  //
-  // std::cout << "Top element: " << heap.top() << " with priority "
-  //           << heap.top_priority() << std::endl;
-  //
-  // heap.pop();
-  // std::cout << "After pop, top element: " << heap.top() << " with priority "
-  //           << heap.top_priority() << std::endl;
 }
