@@ -35,7 +35,5 @@ class binary_heap final : public heap {
   [[nodiscard]] const char *top() const override;
   [[nodiscard]] int top_priority() const override;
   void pop() override;
-
-  binary_heap &merge(heap &other) override;
 };
 }  // namespace lab1

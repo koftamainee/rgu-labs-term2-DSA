@@ -128,17 +128,6 @@ void binary_heap::pop() {
   sift_down(0);
 }
 
-binary_heap &binary_heap::merge(heap &other) {
-  if (&other == this) {
-    return *this;
-  }
-  while (other.size() > 0) {
-    insert(other.top(), other.top_priority());
-    other.pop();
-  }
-  return *this;
-}
-
 void binary_heap::swap(node &first, node &second) {
   auto temp = first;
   first = second;

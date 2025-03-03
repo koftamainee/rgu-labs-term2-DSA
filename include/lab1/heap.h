@@ -13,6 +13,9 @@ class heap {
   [[nodiscard]] virtual int top_priority() const = 0;
   virtual void pop() = 0;
 
-  virtual heap &merge(heap &other) = 0;
+  // default implementation using insert() and pop() methods
+  // used for polymorphic merge with other heap types
+  heap &merge(heap &other);
+  // overload this method to create heap-specific merging alghoritms
 };
 }  // namespace lab1

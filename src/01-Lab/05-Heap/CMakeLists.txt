@@ -5,6 +5,8 @@ add_subdirectory(09-Leftist_heap)
 add_subdirectory(10-Skew_heap)
 add_subdirectory(11-Treap)
 
+
+file(GLOB SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
 add_library(Heap STATIC ${SOURCES})
 
 
