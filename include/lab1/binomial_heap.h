@@ -15,7 +15,7 @@ class binomial_heap final : public heap {
     node* sibling_;
     size_t degree_;
 
-    node(int priority, const char* value);
+    node(const char* value, int priority);
 
     ~node() noexcept;
 
@@ -34,7 +34,6 @@ class binomial_heap final : public heap {
   node* merge_root_lists(node* list1, node* list2);
   node* consolidate(node* head);
   node* find_minimum(node* circ) const;
-  node* remove_from_circular(node* circ, node* target);
   node* reverse_list(node* head);
 
  public:

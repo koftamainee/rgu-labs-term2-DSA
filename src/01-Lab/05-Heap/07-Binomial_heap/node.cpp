@@ -3,7 +3,7 @@
 #include "lab1/binomial_heap.h"
 
 namespace lab1 {
-binomial_heap::node::node(int priority, const char* value)
+binomial_heap::node::node(const char* value, int priority)
     : priority_(priority),
       parent_(nullptr),
       child_(nullptr),
@@ -21,7 +21,7 @@ binomial_heap::node::node(int priority, const char* value)
 binomial_heap::node::~node() noexcept { delete[] value_; }
 
 binomial_heap::node* binomial_heap::node::clone() const {
-  node* new_node = new node(priority_, value_);
+  node* new_node = new node(value_, priority_);
   new_node->degree_ = degree_;
   if (child_ != nullptr) {
     new_node->child_ = child_->clone();

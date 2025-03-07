@@ -24,7 +24,14 @@ binomial_heap& binomial_heap::operator=(binomial_heap& other) {
 
 size_t binomial_heap::size() const { return size_; }
 
-void binomial_heap::insert(const char* value, int priority) {}
+void binomial_heap::insert(const char* value, int priority) {
+  binomial_heap to_merge;
+  to_merge.roots_ = new node(value, priority);
+  to_merge.roots_->sibling_ = to_merge.roots_;
+  to_merge.size_ = 1;
+  to_merge.minimal_ = to_merge.roots_;
+  merge(to_merge);
+}
 
 const char* binomial_heap::top() const {
   if (size_ == 0) {
@@ -40,9 +47,60 @@ int binomial_heap::top_priority() const {
   return minimal_->priority_;
 }
 
-void binomial_heap::pop() {}
+void binomial_heap::pop() {
+  if (size_ == 0) {
+    throw std::out_of_range("Heap is empty");
+  }
 
-binomial_heap& binomial_heap::merge(heap& other_heap) {}
+  node* linear = circular_to_linear(roots_);
+  node* prev = nullptr;
+  node* current = linear;
+  while ((current != nullptr) && current != minimal_) {
+    prev = current;
+    current = current->sibling_;
+  }
+  if (current != nullptr) {
+    if (prev != nullptr) {
+      prev->sibling_ = current->sibling_;
+    } else {
+      linear = current->sibling_;
+    }
+  }
+  node* reversed_children = reverse_list(current->child_);
+  node* children_circular = (reversed_children != nullptr)
+                                ? linear_to_circular(reversed_children)
+                                : nullptr;
+  node* merged =
+      merge_root_lists(linear, (children_circular != nullptr)
+                                   ? circular_to_linear(children_circular)
+                                   : nullptr);
+  merged = consolidate(merged);
+  roots_ = (merged != nullptr) ? linear_to_circular(merged) : nullptr;
+  delete current;
+  --size_;
+  minimal_ = find_minimum(roots_);
+}
+
+binomial_heap& binomial_heap::merge(heap& other_heap) {
+  auto& other = dynamic_cast<binomial_heap&>(other_heap);
+  size_ += other.size_;
+
+  if (roots_ == nullptr) {
+    roots_ = other.roots_;
+    minimal_ = other.minimal_;
+  } else if (other.roots_ != nullptr) {
+    node* linear1 = circular_to_linear(roots_);
+    node* linear2 = circular_to_linear(other.roots_);
+    node* merged = merge_root_lists(linear1, linear2);
+    merged = consolidate(merged);
+    roots_ = (merged != nullptr) ? linear_to_circular(merged) : nullptr;
+    minimal_ = find_minimum(roots_);
+  }
+  other.roots_ = nullptr;
+  other.minimal_ = nullptr;
+  other.size_ = 0;
+  return *this;
+}
 
 binomial_heap::node* binomial_heap::circular_to_linear(node* circ) {
   if (circ == nullptr) {

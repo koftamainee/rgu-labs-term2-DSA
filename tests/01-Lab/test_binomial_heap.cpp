@@ -17,30 +17,24 @@ void demo_insert() {
             << std::endl;
 }
 
-// Demonstrates merging two heaps.
 void demo_merge() {
   std::cout << "Demo Merge:" << std::endl;
   lab1::binomial_heap heap1;
   lab1::binomial_heap heap2;
 
-  // Fill first heap.
   heap1.insert("alpha", 10);
   heap1.insert("beta", 15);
 
-  // Fill second heap.
   heap2.insert("gamma", 5);
   heap2.insert("delta", 20);
 
-  // Merge heap2 into heap1.
   heap1.merge(heap2);
   std::cout << "After merging, heap top: " << heap1.top() << " with priority "
             << heap1.top_priority() << std::endl;
-  std::cout << "Heap2 size after merge: " << heap2.size() << " (should be 0)"
-            << std::endl
+  std::cout << "Heap2 size after merge: " << heap2.size() << std::endl
             << std::endl;
 }
 
-// Demonstrates removal (pop) operations.
 void demo_pop() {
   std::cout << "Demo Pop:" << std::endl;
   lab1::binomial_heap heap;
@@ -56,7 +50,12 @@ void demo_pop() {
   heap.pop();
   std::cout << "After second pop, top: " << heap.top() << " with priority "
             << heap.top_priority() << std::endl;
-  std::cout << "Remaining size: " << heap.size() << std::endl << std::endl;
+  std::cout << "Remaining size: " << heap.size() << std::endl;
+
+  heap.pop();
+
+  std::cout << "Remaining size after last pop(): " << heap.size() << std::endl
+            << std::endl;
 }
 
 }  // namespace
