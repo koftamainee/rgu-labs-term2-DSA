@@ -4,6 +4,7 @@
 
 #include "includes.h"
 #include "lab1/tests/test_binary_heap.h"
+#include "lab1/tests/test_binomial_heap.h"
 
 void (*const LAB_1_FUNCTION_POINTERS[])(int, char **) = {
     lab1::test::encoder,
@@ -11,7 +12,8 @@ void (*const LAB_1_FUNCTION_POINTERS[])(int, char **) = {
     lab1::test::complex,
     lab1::test::matrix,
     nullptr,  // task 5 is not executable
-    lab1::test::binary_heap};
+    lab1::test::binary_heap,
+    lab1::test::binomial_heap};
 
 void (*const *const LABS_FUNCTION_POINTERS[])(int, char **) = {
     LAB_1_FUNCTION_POINTERS};

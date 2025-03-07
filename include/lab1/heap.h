@@ -6,7 +6,6 @@ namespace lab1 {
 class heap {
  public:
   [[nodiscard]] virtual size_t size() const = 0;
-  [[nodiscard]] virtual size_t capacity() const = 0;
 
   virtual void insert(const char *value, int priority) = 0;
   [[nodiscard]] virtual const char *top() const = 0;

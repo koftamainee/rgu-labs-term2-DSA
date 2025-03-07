@@ -25,11 +25,11 @@ class binary_heap final : public heap {
  public:
   binary_heap();
   binary_heap(binary_heap &other);
-  ~binary_heap();
+  ~binary_heap() noexcept;
   binary_heap &operator=(binary_heap &other);
 
   [[nodiscard]] size_t size() const override;
-  [[nodiscard]] size_t capacity() const override;
+  [[nodiscard]] size_t capacity() const;
 
   void insert(const char *value, int priority) override;
   [[nodiscard]] const char *top() const override;

@@ -6,21 +6,19 @@ namespace lab1 {
 class binomial_heap final : public heap {
  private:
   class node {
-   public:
+   private:
     int priority_;
     char *value_;
     node *parent_;
     node *child_;
     node *sibling_;
     size_t degree_;
+
+   public:
     node(int priority, const char *value);
     ~node() noexcept;
 
     [[nodiscard]] node *clone() const;
-
-   private:
-    static node *clone_linear_list(const node *head);
-    friend node *clone_circular_list(const node *head);
   };
 
   node *minimal_;
@@ -28,9 +26,6 @@ class binomial_heap final : public heap {
   size_t size_;
 
   void copy_from(const binomial_heap &other);
-  void cleanup();
-
-  static node *clone_circular_list(const node *head);
 
  public:
   binomial_heap();
