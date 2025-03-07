@@ -3,40 +3,35 @@
 #include "lab1/binomial_heap.h"
 
 namespace lab1 {
-binomial_heap::node::node(int priority, const char *value)
+binomial_heap::node::node(int priority, const char* value)
     : priority_(priority),
-      value_(nullptr),
       parent_(nullptr),
       child_(nullptr),
-      sibling_(nullptr) {
-  size_t len = std::strlen(value);
-  value_ = new char[len + 1];
-  std::strcpy(value_, value);
-}
-
-binomial_heap::node::~node() noexcept {
-  delete[] value_;
-
-  node *current = child_;
-  while (current != nullptr) {
-    node *next = current->sibling_;
-    current->sibling_ = nullptr;
-    delete current;
-    current = next;
+      sibling_(nullptr),
+      degree_(0) {
+  if (value != nullptr) {
+    size_t len = std::strlen(value) + 1;
+    value_ = new char[len];
+    std::strcpy(value_, value);
+  } else {
+    value_ = nullptr;
   }
 }
 
-[[nodiscard]] binomial_heap::node *binomial_heap::node::clone() const {
-  node *new_node = new node(priority_, value_);
-  new_node->degree_ = degree_;
+binomial_heap::node::~node() noexcept { delete[] value_; }
 
+binomial_heap::node* binomial_heap::node::clone() const {
+  node* new_node = new node(priority_, value_);
+  new_node->degree_ = degree_;
   if (child_ != nullptr) {
     new_node->child_ = child_->clone();
-    new_node->child_->parent_ = new_node;
-  }
-
-  if (sibling_ != nullptr) {
-    new_node->sibling_ = sibling_->clone();
+    node* current = new_node->child_;
+    node* orig = child_->sibling_;
+    while (orig != nullptr) {
+      current->sibling_ = orig->clone();
+      current = current->sibling_;
+      orig = orig->sibling_;
+    }
   }
   return new_node;
 }
