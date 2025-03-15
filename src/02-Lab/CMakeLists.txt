@@ -1,0 +1,7 @@
+add_subdirectory(01-Bigint)
+
+add_library(02-Lab STATIC ${SOURCES})
+
+target_link_libraries(02-Lab PRIVATE
+  Bigint
+)
