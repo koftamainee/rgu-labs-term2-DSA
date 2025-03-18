@@ -29,7 +29,7 @@ class fibonacci_heap final : public heap {
   size_t size_;
   node *min_;
 
-  node *clone_heap(node *other);  // TODO
+  node *clone_heap(node *other);
 
   void union_lists(node *first, node *second) const;
   void consolidate();

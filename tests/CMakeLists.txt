@@ -1,13 +1,3 @@
-add_subdirectory(01-Lab)
-add_subdirectory(02-Lab)
+file(GLOB_RECURSE DEMO_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
+add_library(Tests STATIC ${DEMO_SOURCES})
 
-add_library(Tests STATIC ${SOURCES})
-
-target_link_libraries(Tests PRIVATE
-  01-Lab_tests
-  02-Lab_tests
-)
-
-target_link_libraries(rgu-labs PRIVATE
-  Tests
-)

@@ -1,5 +1,7 @@
 #include "tests/test_matrix.h"
 
+#include <exception>
+
 #include "iostream"
 #include "matrix.h"
 

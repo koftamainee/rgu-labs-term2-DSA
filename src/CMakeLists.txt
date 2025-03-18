@@ -6,4 +6,5 @@ target_link_libraries(rgu-labs PRIVATE
   cstd
   01-Lab
   02-Lab
+  Tests
 )

@@ -3,14 +3,14 @@
 #include <cstring>
 
 namespace lab2 {
+
 bigint::bigint() : sign_(0), numbers_(nullptr), size_(0), capacity_(0) {}
 
 bigint::bigint(char const *value, std::size_t base) {}  // TODO
 
 bigint::bigint(int const *value, std::size_t size) {}  // TODO
 
-bigint::bigint(int value)
-    : sign_(value), numbers_(nullptr), size_(0), capacity_(0) {}
+bigint::bigint(long long value) {}
 
 bigint::bigint(bigint const &other)
     : size_(other.sign_), sign_(other.sign_), capacity_(other.capacity_) {
@@ -48,5 +48,55 @@ bigint &bigint::operator=(bigint const &other) {
   }
   return *this;
 }
+
+bigint &bigint::operator++() & {}
+bigint bigint::operator++(int) & {}
+
+bigint &bigint::operator--() & {}
+bigint bigint::operator--(int) & {}
+
+bigint &bigint::operator+=(bigint const &other) & {}
+bigint operator+(bigint const &first, bigint const &second) {}
+
+bigint &bigint::operator-=(bigint const &other) & {}
+bigint operator-(bigint const &first, bigint const &second) {}
+
+bigint &bigint::operator*=(bigint const &other) & {}
+bigint operator*(bigint const &first, bigint const &second) {}
+
+bigint &bigint::operator/=(bigint const &other) & {}
+bigint operator/(bigint const &first, bigint const &second) {}
+
+bigint &bigint::operator%=(bigint const &other) & {}
+bigint operator%(bigint const &first, bigint const &second) {}
+
+bool operator==(bigint const &first, bigint const &second) {}
+bool operator!=(bigint const &first, bigint const &second) {}
+
+bool operator<(bigint const &first, bigint const &second) {}
+bool operator<=(bigint const &first, bigint const &second) {}
+
+bool operator>(bigint const &first, bigint const &second) {}
+bool operator>=(bigint const &first, bigint const &second) {}
+
+bigint bigint::operator~() {}
+
+bigint &bigint::operator&=(bigint const &other) & {}
+bigint operator&(bigint const &first, bigint const &second) {}
+
+bigint &bigint::operator|=(bigint const &other) & {}
+bigint operator|(bigint const &first, bigint const &second) {}
+
+bigint &bigint::operator^=(bigint const &other) & {}
+bigint operator^(bigint const &first, bigint const &second) {}
+
+bigint &bigint::operator<<=(bigint const &other) & {}
+bigint operator<<(bigint const &first, bigint const &second) {}
+
+bigint &bigint::operator>>=(bigint const &other) & {}
+bigint operator>>(bigint const &first, bigint const &second) {}
+
+std::ostream &operator<<(std::ostream &out, bigint const &num) {}
+std::istream &operator>>(std::istream &in, bigint &num) {}
 
 }  // namespace lab2

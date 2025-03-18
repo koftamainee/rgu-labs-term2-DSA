@@ -17,7 +17,9 @@ void (*const LAB_1_FUNCTION_POINTERS[])(int, char **) = {
     lab1::test::leftist_heap,
     lab1::test::skew_heap};
 
-void (*const LAB_2_FUNCTION_POINTERS[])(int, char **) = {lab2::test::bigint};
+void (*const LAB_2_FUNCTION_POINTERS[])(int, char **) = {
+    lab2::test::bigint,
+};
 
 void (*const *const LABS_FUNCTION_POINTERS[])(int, char **) = {
     LAB_1_FUNCTION_POINTERS,
