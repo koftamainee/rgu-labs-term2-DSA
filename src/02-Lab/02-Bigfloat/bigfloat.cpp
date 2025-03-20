@@ -38,17 +38,17 @@ bool operator>=(bigfloat const &first, bigfloat const &second) {}
 std::ostream &operator<<(std::ostream &out, bigfloat const &num) {}
 std::istream &operator>>(std::istream &in, bigfloat const &num) {}
 
-double sin(bigfloat const &number, bigfloat const &EPS) {}
-double tg(bigfloat const &number, bigfloat const &EPS) {}
-double ctg(bigfloat const &number, bigfloat const &EPS) {}
-double sec(bigfloat const &number, bigfloat const &EPS) {}
-double cosec(bigfloat const &number, bigfloat const &EPS) {}
-double arcsin(bigfloat const &number, bigfloat const &EPS) {}
-double arccos(bigfloat const &number, bigfloat const &EPS) {}
-double arctg(bigfloat const &number, bigfloat const &EPS) {}
-double arcctg(bigfloat const &number, bigfloat const &EPS) {}
-double arcsec(bigfloat const &number, bigfloat const &EPS) {}
-double arccosec(bigfloat const &number, bigfloat const &EPS) {}
+bigfloat sin(bigfloat const &number, bigfloat const &EPS) {}
+bigfloat tg(bigfloat const &number, bigfloat const &EPS) {}
+bigfloat ctg(bigfloat const &number, bigfloat const &EPS) {}
+bigfloat sec(bigfloat const &number, bigfloat const &EPS) {}
+bigfloat cosec(bigfloat const &number, bigfloat const &EPS) {}
+bigfloat arcsin(bigfloat const &number, bigfloat const &EPS) {}
+bigfloat arccos(bigfloat const &number, bigfloat const &EPS) {}
+bigfloat arctg(bigfloat const &number, bigfloat const &EPS) {}
+bigfloat arcctg(bigfloat const &number, bigfloat const &EPS) {}
+bigfloat arcsec(bigfloat const &number, bigfloat const &EPS) {}
+bigfloat arccosec(bigfloat const &number, bigfloat const &EPS) {}
 
 bigfloat pow(bigfloat const &base, bigint const &exp) {}
 bigfloat radical(bigfloat const &radicand, bigint const &index,

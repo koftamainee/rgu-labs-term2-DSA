@@ -53,17 +53,17 @@ class bigfloat final {
   friend std::ostream &operator<<(std::ostream &out, bigfloat const &num);
   friend std::istream &operator>>(std::istream &in, bigfloat const &num);
 
-  friend double sin(bigfloat const &number, bigfloat const &EPS);
-  friend double tg(bigfloat const &number, bigfloat const &EPS);
-  friend double ctg(bigfloat const &number, bigfloat const &EPS);
-  friend double sec(bigfloat const &number, bigfloat const &EPS);
-  friend double cosec(bigfloat const &number, bigfloat const &EPS);
-  friend double arcsin(bigfloat const &number, bigfloat const &EPS);
-  friend double arccos(bigfloat const &number, bigfloat const &EPS);
-  friend double arctg(bigfloat const &number, bigfloat const &EPS);
-  friend double arcctg(bigfloat const &number, bigfloat const &EPS);
-  friend double arcsec(bigfloat const &number, bigfloat const &EPS);
-  friend double arccosec(bigfloat const &number, bigfloat const &EPS);
+  friend bigfloat sin(bigfloat const &number, bigfloat const &EPS);
+  friend bigfloat tg(bigfloat const &number, bigfloat const &EPS);
+  friend bigfloat ctg(bigfloat const &number, bigfloat const &EPS);
+  friend bigfloat sec(bigfloat const &number, bigfloat const &EPS);
+  friend bigfloat cosec(bigfloat const &number, bigfloat const &EPS);
+  friend bigfloat arcsin(bigfloat const &number, bigfloat const &EPS);
+  friend bigfloat arccos(bigfloat const &number, bigfloat const &EPS);
+  friend bigfloat arctg(bigfloat const &number, bigfloat const &EPS);
+  friend bigfloat arcctg(bigfloat const &number, bigfloat const &EPS);
+  friend bigfloat arcsec(bigfloat const &number, bigfloat const &EPS);
+  friend bigfloat arccosec(bigfloat const &number, bigfloat const &EPS);
 
   friend bigfloat pow(bigfloat const &base, bigint const &exp);
   friend bigfloat radical(bigfloat const &radicand, bigint const &index,
@@ -75,24 +75,28 @@ class bigfloat final {
   friend bigfloat log10(bigfloat const &number, bigfloat const &EPS);
 };
 
-double cos(bigfloat const &number, bigfloat const &EPS = bigfloat::DEFAULT_EPS);
-double tg(bigfloat const &number, bigfloat const &EPS = bigfloat::DEFAULT_EPS);
-double ctg(bigfloat const &number, bigfloat const &EPS = bigfloat::DEFAULT_EPS);
-double sec(bigfloat const &number, bigfloat const &EPS = bigfloat::DEFAULT_EPS);
-double cosec(bigfloat const &number,
+bigfloat cos(bigfloat const &number,
              bigfloat const &EPS = bigfloat::DEFAULT_EPS);
-double arcsin(bigfloat const &number,
-              bigfloat const &EPS = bigfloat::DEFAULT_EPS);
-double arccos(bigfloat const &number,
-              bigfloat const &EPS = bigfloat::DEFAULT_EPS);
-double arctg(bigfloat const &number,
+bigfloat tg(bigfloat const &number,
+            bigfloat const &EPS = bigfloat::DEFAULT_EPS);
+bigfloat ctg(bigfloat const &number,
              bigfloat const &EPS = bigfloat::DEFAULT_EPS);
-double arcctg(bigfloat const &number,
-              bigfloat const &EPS = bigfloat::DEFAULT_EPS);
-double arcsec(bigfloat const &number,
-              bigfloat const &EPS = bigfloat::DEFAULT_EPS);
-double arccosec(bigfloat const &number,
+bigfloat sec(bigfloat const &number,
+             bigfloat const &EPS = bigfloat::DEFAULT_EPS);
+bigfloat cosec(bigfloat const &number,
+               bigfloat const &EPS = bigfloat::DEFAULT_EPS);
+bigfloat arcsin(bigfloat const &number,
                 bigfloat const &EPS = bigfloat::DEFAULT_EPS);
+bigfloat arccos(bigfloat const &number,
+                bigfloat const &EPS = bigfloat::DEFAULT_EPS);
+bigfloat arctg(bigfloat const &number,
+               bigfloat const &EPS = bigfloat::DEFAULT_EPS);
+bigfloat arcctg(bigfloat const &number,
+                bigfloat const &EPS = bigfloat::DEFAULT_EPS);
+bigfloat arcsec(bigfloat const &number,
+                bigfloat const &EPS = bigfloat::DEFAULT_EPS);
+bigfloat arccosec(bigfloat const &number,
+                  bigfloat const &EPS = bigfloat::DEFAULT_EPS);
 
 bigfloat radical(bigfloat const &radicand, bigint const &index,
                  bigfloat const &EPS);

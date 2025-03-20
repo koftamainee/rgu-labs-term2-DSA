@@ -110,7 +110,6 @@ skew_heap::node *skew_heap::merge_nodes(node *a, node *b) {
   if (a->priority_ > b->priority_) {
     swap(a, b);
   }
-  swap(a->left_, a->right_);
   a->left_ = merge_nodes(b, a->left_);
   return a;
 }
