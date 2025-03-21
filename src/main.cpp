@@ -14,7 +14,8 @@ void (*const LAB_1_FUNCTION_POINTERS[])(int, char **) = {
     lab1::test::binomial_heap,
     lab1::test::fibonacci_heap,
     lab1::test::leftist_heap,
-    lab1::test::skew_heap};
+    lab1::test::skew_heap,
+    lab1::test::treap};
 
 void (*const LAB_2_FUNCTION_POINTERS[])(int, char **) = {
     lab2::test::bigint,

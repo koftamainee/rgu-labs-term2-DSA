@@ -9,3 +9,4 @@
 #include "tests/test_logical_values_array.h"
 #include "tests/test_matrix.h"
 #include "tests/test_skew_heap.h"
+#include "tests/test_treap.h"

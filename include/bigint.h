@@ -13,14 +13,13 @@ class bigint final {
   int sign_;
   int *numbers_;
 
-  std::size_t size_;
-  std::size_t capacity_;
+  int operator[](std::size_t) const;
 
  public:
   bigint();
   bigint(char const *value, std::size_t base);
   bigint(int const *value, std::size_t size);
-  bigint(long long value);
+  bigint(int value);
   bigint(bigint const &other);
   ~bigint() noexcept;
 
@@ -29,10 +28,10 @@ class bigint final {
   bigint &operator=(bigint const &other);
 
   bigint &operator++() &;
-  bigint operator++(int) &;
+  bigint const operator++(int) &;
 
   bigint &operator--() &;
-  bigint operator--(int) &;
+  bigint const operator--(int) &;
 
   bigint &operator+=(bigint const &other) &;
   friend bigint operator+(bigint const &first, bigint const &second);
