@@ -1,3 +1,4 @@
+#include <cstdint>
 #include <expected>
 #include <optional>
 
@@ -14,9 +15,14 @@ class treap final : public heap {
     node *left_;
     node *right_;
 
-    node(char *value, int key, int priority);
+    node(char const *value, int key, int priority);
     node(node const &other);
     ~node() noexcept;
+  };
+
+  enum disposal_status : std::uint8_t {
+    bst_find,
+    heap_sift_down,
   };
 
   node *root_;
@@ -31,6 +37,13 @@ class treap final : public heap {
   static node *clone_node(node const *to_clone);
 
   static std::optional<char const *> find_inner(int key, node *current_node);
+  static void insert_inner(int key, int priority, char const *value,
+                           node *&current_node);
+  static bool dispose_inner(int key, node *&current_node,
+                            disposal_status status);
+
+  static void rotate_left(node *&subtree, bool validate = false);
+  static void rotate_right(node *&subtree, bool validate = false);
 
  public:
   treap(int seed = 0, int randomizer_lower_bound = 0,

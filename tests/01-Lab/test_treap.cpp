@@ -13,15 +13,15 @@ void demonstrate_treap() {
   std::cout << "\n2. Insert elements:\n";
   t1.insert("Alice", 10);
   std::cout << "   Inserted ('Alice', 10). Current top: " << t1.top()
-            << " (priority: " << t1.top_priority() << ")\n";
+            << " (key: " << t1.top_priority() << ")\n";
 
   t1.insert("Bob", 20);
   std::cout << "   Inserted ('Bob', 20). Current top: " << t1.top()
-            << " (priority: " << t1.top_priority() << ")\n";
+            << " (key: " << t1.top_priority() << ")\n";
 
   t1.insert("Charlie", 5);
   std::cout << "   Inserted ('Charlie', 5). Current top: " << t1.top()
-            << " (priority: " << t1.top_priority() << ")\n";
+            << " (key: " << t1.top_priority() << ")\n";
 
   std::cout << "\n3. Treap size: " << t1.size() << std::endl;
 
@@ -51,8 +51,8 @@ void demonstrate_treap() {
   std::cout << "\n7. Merge two treaps:\n";
 
   lab1::treap t2(123, 0, 1024);
-  t2.insert("Dave", 15);
-  t2.insert("Eve", 25);
+  t2.insert("Dave", 1000);
+  t2.insert("Eve", 993);
   std::cout << "   Created second treap. Its top: " << t2.top()
             << " (priority: " << t2.top_priority() << ")\n";
 

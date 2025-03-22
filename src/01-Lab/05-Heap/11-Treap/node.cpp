@@ -5,7 +5,7 @@
 
 namespace lab1 {
 
-treap::node::node(char *value, int key, int priority)
+treap::node::node(char const *value, int key, int priority)
     : key_(key), left_(nullptr), right_(nullptr), priority_(priority) {
   std::size_t len = strlen(value);
   value_ = new char[len + 1];
