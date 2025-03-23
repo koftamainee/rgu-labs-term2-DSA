@@ -17,17 +17,12 @@ void (*const LAB_1_FUNCTION_POINTERS[])(int, char **) = {
     lab1::test::skew_heap,
     lab1::test::treap};
 
-void (*const LAB_2_FUNCTION_POINTERS[])(int, char **) = {
-    lab2::test::bigint,
-};
-
 void (*const *const LABS_FUNCTION_POINTERS[])(int, char **) = {
     LAB_1_FUNCTION_POINTERS,
-    LAB_2_FUNCTION_POINTERS,
 };
 
-const int LABS_COUNT = 4;
-const int TASKS_COUNT[] = {11, 9, 9, 6};
+const int LABS_COUNT = 1;
+const int TASKS_COUNT[] = {11};
 
 int main(int argc, char **argv) {
   if (argc < 3) {

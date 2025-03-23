@@ -1,5 +1,3 @@
-#include "tests/test_bigfloat.h"
-#include "tests/test_bigint.h"
 #include "tests/test_binary_heap.h"
 #include "tests/test_binomial_heap.h"
 #include "tests/test_encoder.h"
