@@ -1,4 +1,16 @@
 # Data structures and alghoritms labs
+## Contents
+- Task 1 -- RC4 Encoder
+- Task 2 -- Logical values array implemented on uint, with binary operations support
+- Task 3 -- Class for computing with complex numbers
+- Task 4 -- Class for matrix computation
+- Task 5 -- Interface for priority queue (heap)
+- Task 6 -- Binary heap, based on Task 5
+- Task 7 - Binomial heap, based on Task 5
+- Task 8 -- Fibonacci heap, based on Task 5
+- Task 9 -- Leftist heap, based on skew heap from Task 10
+- Task 10 -- SKew heap, based on Task 5
+- Task 11 -- Treap, based on Task 5 
 ## Compilation
 ```bash
 make
